@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const services = [
   {
@@ -31,7 +31,7 @@ const services = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -41,7 +41,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
@@ -89,10 +89,10 @@ export default function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16"
+          className="flex overflow-x-auto pb-12 md:pb-0 md:grid md:grid-cols-3 gap-6 md:gap-12 lg:gap-16 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden -mx-6 px-6 md:mx-0 md:px-0"
         >
           {services.map((service) => (
-            <motion.div variants={itemVariants} key={service.id} className="group flex flex-col">
+            <motion.div variants={itemVariants} key={service.id} className="group flex flex-col min-w-[85vw] sm:min-w-[60vw] md:min-w-0 snap-center shrink-0">
               <div className="relative aspect-[4/5] w-full mb-8 overflow-hidden rounded-t-full border border-[#d4af37]/20 p-2 shadow-[0_0_15px_rgba(212,175,55,0.05)] bg-[#1a1412]">
                 <div className="relative w-full h-full overflow-hidden rounded-t-full">
                   <Image

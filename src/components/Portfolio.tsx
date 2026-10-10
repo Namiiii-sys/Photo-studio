@@ -87,7 +87,7 @@ export default function Portfolio() {
           </motion.div>
         </div>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div className="flex flex-col md:block md:columns-2 lg:columns-3 gap-8 md:gap-6 md:space-y-6">
           {projects.map((project, index) => (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -95,7 +95,9 @@ export default function Portfolio() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: (index % 3) * 0.2 }}
               key={project.id}
-              className="group cursor-pointer break-inside-avoid relative overflow-hidden rounded-sm border border-transparent hover:border-[#d4af37]/30 transition-all duration-500 p-1 bg-[#0f0a08]"
+              className={`group cursor-pointer break-inside-avoid relative overflow-hidden rounded-sm border border-transparent hover:border-[#d4af37]/30 transition-all duration-500 p-1 bg-[#0f0a08] ${
+                index % 2 === 0 ? "mr-8 ml-0 md:mx-0 md:mb-6" : "ml-8 mr-0 md:mx-0 md:mb-6"
+              }`}
             >
               <div
                 className={`relative w-full overflow-hidden rounded-sm ${project.aspectRatio}`}
